@@ -35,6 +35,9 @@ class _registrationState extends State<registration> {
         'username':_username.text,
         'password':_password.text,
         }));
+       print(response.statusCode);
+       print(response.body);
+       var data=jsonDecode(response.body);
        if(response.statusCode==200){
          Navigator.push(context, MaterialPageRoute(builder: (Context)=>Login()));
 
