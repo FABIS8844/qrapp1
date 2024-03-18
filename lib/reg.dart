@@ -17,9 +17,9 @@ class registration extends StatefulWidget {
 
 class _registrationState extends State<registration> {
   final TextEditingController _name=TextEditingController();
-  final TextEditingController _dob=TextEditingController();
-  final TextEditingController _username=TextEditingController();
-  final TextEditingController _password=TextEditingController();
+  final TextEditingController rollno=TextEditingController();
+  final TextEditingController username=TextEditingController();
+  final TextEditingController password=TextEditingController();
 
 
   bool loading=false;
@@ -27,13 +27,13 @@ class _registrationState extends State<registration> {
     Uri uri=Uri.parse('https://scnner-web.onrender.com/api/register');
     var response=await http.post(uri,
     headers: <String,String>{
-      'content-type':'application/jason,charset=UTF-8',
+      'Content-Type':'application/jason, charset=UTF-8',
         },
         body:jsonEncode({
         'name':_name.text,
-        'dob':_name.text,
-        'username':_username.text,
-        'password':_password.text,
+        'rollno':rollno.text,
+        'username':username.text,
+        'password':password.text,
         }));
        print(response.statusCode);
        print(response.body);
@@ -47,9 +47,9 @@ class _registrationState extends State<registration> {
 
        }
         print(_name.text);
-        print(_dob.text);
-        print(_username.text);
-        print(_password.text);
+        print(rollno.text);
+        print(username.text);
+        print(password.text);
   }
 
   @override
@@ -73,7 +73,7 @@ class _registrationState extends State<registration> {
                 height: 20,),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: TextField(controller:_dob,decoration: InputDecoration(
+                child: TextField(controller:rollno,decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Enter DOB',
                     hintText: ''
@@ -83,7 +83,7 @@ class _registrationState extends State<registration> {
                 height: 20,),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: TextField(controller:_username,decoration: InputDecoration(
+                child: TextField(controller:username,decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Username',
                     hintText: ''
@@ -93,7 +93,7 @@ class _registrationState extends State<registration> {
                 height: 20,),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: TextField(controller:_password,decoration: InputDecoration(
+                child: TextField(controller:password,decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
                     hintText: ''
