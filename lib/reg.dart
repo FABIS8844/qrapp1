@@ -27,7 +27,7 @@ class _registrationState extends State<registration> {
     Uri uri=Uri.parse('https://scnner-web.onrender.com/api/register');
     var response=await http.post(uri,
     headers: <String,String>{
-      'Content-Type':'application/jason, charset=UTF-8',
+          'Content-Type':'application/json;charset=UTF-8',
         },
         body:jsonEncode({
         'name':_name.text,
